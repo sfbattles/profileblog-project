@@ -1,0 +1,17 @@
+{% extends 'jobs/base.html' %}
+{% block header-title %}
+  <title>{{ blog.title }}</title>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<main role="main">
+    <div class="container">
+        <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <h3 class="text-center pt-3">{{ blog.pub_date_pretty }}</h3>
+        <br/>
+        <img src="{{ blog.image.url }}" class="img-fluid" alt="blog.image">
+        <br>
+        <p>{{blog.body}}</p>
+    </div>
+{% endblock %}

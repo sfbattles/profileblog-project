@@ -1,0 +1,26 @@
+{% extends 'jobs/base.html' %}
+{% block header-title %}
+  <title>Richard's Blog</title>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<main role="main">
+    <div class="container">        
+        <h1 class="text-center pt-3">Welcome to Richard's Blog</h1>
+        <h2 class="pt-5">Latest Posts</h2>
+        <hr/>
+        {% for blog in blogs %}
+        <div class="container border mb-3"> 
+            <a href="{%url 'blog_details' blog.id %}"><h3>{{ blog.title }}</h3></a>
+            <h3>{{ blog.pub_date_pretty }}</h3>
+            <br/>
+            <img src="{{ blog.image.url }}" class="img-fluid" alt="blog.image"  height=200 width=200>
+            <br>
+            <p>{{blog.summary}}</p>
+        </div>
+        {% endfor %}   
+    </div>
+</main>
+{% endblock %}
